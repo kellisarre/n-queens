@@ -1,0 +1,23 @@
+{
+  "name": "n-queens",
+  "version": "1.0.0",
+  "author": "Shams Ali <shams.ali0216@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "karma": "^1.7.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "puppeteer": "^0.11.0"
+  },
+  "dependencies": {
+    "karma-jquery": "^0.2.2",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.2"
+  }
+}
