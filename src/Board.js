@@ -81,10 +81,10 @@
     hasRowConflictAt: function(rowIndex) {
       // debugger;
       //set a board variable to this.attribute which is the board
-      const Board = this.rows();
+      const Board = this.get(rowIndex);
       // console.log(Board[rowIndex]);
       //filter out only the queens then if there are more than 1 queen return true
-      const answer = Board[rowIndex].filter((element) => element === 1).length > 1;
+      const answer = Board.filter((element) => element === 1).length > 1;
       // console.log(answer); 
       //sort them for 1, if the length of that array is more than 1 return true
       return answer;
