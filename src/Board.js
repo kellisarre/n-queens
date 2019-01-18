@@ -81,10 +81,10 @@
     hasRowConflictAt: function(rowIndex) {
       // debugger;
       //set a board variable to this.attribute which is the board
-      const Board = this.rows();
+      const Board = this.get(rowIndex);
       // console.log(Board[rowIndex]);
       //filter out only the queens then if there are more than 1 queen return true
-      const answer = Board[rowIndex].filter((element) => element === 1).length > 1;
+      const answer = Board.filter((element) => element === 1).length > 1;
       // console.log(answer); 
       //sort them for 1, if the length of that array is more than 1 return true
       return answer;
@@ -117,17 +117,22 @@
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
       let board = this.rows();
-      
-      let rotatedBoard = new Board(_.zip.apply(this, board));
-      console.log(rotatedBoard)
-      return rotatedBoard.hasRowConflictAt(colIndex);
+      let count = 0;
+      for(let i = 0; i < this.get('n'); i++){
+        if(this.get(i)[colIndex] === 1){count++};
+        if(count > 1){return true}
+      }
+      return false;
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      let board = this.rows();
-      let rotatedBoard = new Board(_.zip.apply(this, board));
-      return rotatedBoard.hasAnyRowConflicts();
+      for(let i = 0; i < this.get('n'); i++){
+        if(this.hasColConflictAt(i)){
+          return true;
+        }
+      }
+      return false;
     },
 
 
